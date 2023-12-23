@@ -6,10 +6,8 @@ import time
 
 def details(soup):
     try:
-        # selecting div with class pure...
         info = soup.find('div', {'class': 'pure-1 md-3-5'})
-
-        # now extracting the text for p tag of the div
+        
         print("\nAbout the Anime : \n", "\t\t", info.find('p').getText(), "\n")
 
         total_episodes = soup.find('div', {'class': 'pure-1 md-1-5'})
@@ -31,25 +29,22 @@ def details(soup):
 def entry():
     print("\nType complete name>>\n")
     anime_name = input("Enter the name of the anime : ")
-
-    # Format anime name for URL
+    
     anime_name = anime_name.lower().replace(" ", "-")
 
     print("\nSearching for:", anime_name)
 
     search_url = f"https://www.anime-planet.com/anime/{anime_name}"
 
-    # Add headers to simulate a browser request
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
     }
 
     try:
         source_code = requests.get(search_url, headers=headers)
-        source_code.raise_for_status()  # Check for HTTP errors
+        source_code.raise_for_status() 
         content = source_code.content
         global soup
-        # to parse the selected HTML
         soup = BeautifulSoup(content, features="html.parser")
 
         details(soup)
