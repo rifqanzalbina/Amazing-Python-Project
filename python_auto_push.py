@@ -1,8 +1,8 @@
 import datetime
 import os
 
-start_date = datetime.date(2022, 1, 1)  # Tanggal awal yang diinginkan
-end_date = datetime.date(2023, 1, 20)  # Tanggal akhir yang diinginkan
+start_date = datetime.date(2024, 1, 1)  # Tanggal awal yang diinginkan
+end_date = datetime.date(2023, 6, 26)  # Tanggal akhir yang diinginkan
 # end_date = datetime.date.today() # Tanggal yang sesuai hari ini
 
 for i in range((end_date - start_date).days + 1):
