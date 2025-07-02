@@ -1,13 +1,21 @@
-import os, random
+import os
 
-# ! Mengatur upstream branch
-os.system('git pull')  # Mengambil perubahan terbaru dari remote repository
+# Mengatur upstream branch dan mengambil perubahan terbaru dari remote repository
+os.system("git pull")
 
-for i in range(0, 20):
-    d = 'Updated Daily Check'
-    with open('test.txt', 'a') as file:
-        file.write(d + '\n')
-    os.system('git add test.txt')
-    os.system('git commit --date="2024-08-23" -m 1')
+# Melakukan loop untuk menambahkan dan meng-commit perubahan sebanyak 20 kali
+for i in range(20):
+    d = "Updated Daily Check"
+    
+    # Menulis perubahan ke dalam file
+    with open("test.txt", "a") as file:
+        file.write(d + "\n")
 
-os.system('git push') # Mengirim perubahan lokal ke remote repository   
+    # Menambahkan file ke staging
+    os.system("git add test.txt")
+    
+    # Commit dengan tanggal yang ditentukan
+    os.system('git commit --date="2025-07-01T00:00:00" -m "Update daily check"')
+
+# Mengirim perubahan lokal ke remote repository
+os.system("git push")
